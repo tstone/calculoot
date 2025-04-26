@@ -26,8 +26,8 @@ impl Equation {
         }
     }
 
-    /// Generate a random equation with the given difficulty
-    pub fn rnd_complex(
+    /// Generates an equasion with up to 3 operations and 4 numbers ie. (a+b)+(c+d)
+    pub fn rnd_compound(
         op_config: &OperationConfig,
         op_count: u8,
         rng: &mut impl Rng,
