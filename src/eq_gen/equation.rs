@@ -26,7 +26,7 @@ impl Equation {
         }
     }
 
-    /// Generates an equasion with up to 3 operations and 4 numbers ie. (a+b)+(c+d)
+    /// Generates an equation with up to 3 operations and 4 numbers ie. (a+b)+(c+d)
     pub fn rnd_compound(
         op_config: &OperationConfig,
         op_count: u8,
