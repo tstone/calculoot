@@ -8,3 +8,8 @@
   - gems
   - gold coins
   - potions for life
+
+### Assets
+
+- Pirate sprites - https://pixelfrog-assets.itch.io/treasure-hunters
+- Grass tileset - https://cainos.itch.io/pixel-art-top-down-basic
