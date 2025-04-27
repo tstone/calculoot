@@ -1,6 +1,8 @@
+use background::BackgroundTiles;
 use bevy::log::{Level, LogPlugin};
 use bevy::prelude::*;
 use camera::CameraSetup;
+use seed::SeedPlugin;
 use sprite_animation::SpriteAnimationPlugin;
 
 use std::collections::HashSet;
@@ -9,8 +11,10 @@ use eq_gen::{Equation, NumberType, OperationConfig, OperationType};
 use rand::{prelude::*, random_range};
 use rand_chacha::ChaCha8Rng;
 
+mod background;
 mod camera;
 mod eq_gen;
+mod seed;
 mod sprite_animation;
 
 fn main() -> AppExit {
@@ -33,7 +37,12 @@ fn main() -> AppExit {
                     ..Default::default()
                 }),
         )
-        .add_plugins((SpriteAnimationPlugin, CameraSetup))
+        .add_plugins((
+            SeedPlugin,
+            SpriteAnimationPlugin,
+            BackgroundTiles,
+            CameraSetup,
+        ))
         .run()
 }
 

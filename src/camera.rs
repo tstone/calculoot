@@ -8,6 +8,18 @@ impl Plugin for CameraSetup {
     }
 }
 
+#[derive(Component)]
+pub struct MainCamera;
+
 fn camera(mut commands: Commands) {
-    commands.spawn((Camera2d, Msaa::Off));
+    commands.spawn((
+        Msaa::Off,
+        Camera2d,
+        MainCamera,
+        Projection::from(OrthographicProjection {
+            scale: 1.0 / 3.0,
+            viewport_origin: Vec2::new(0.0, 0.0),
+            ..OrthographicProjection::default_2d()
+        }),
+    ));
 }
