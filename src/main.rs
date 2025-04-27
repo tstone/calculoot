@@ -1,4 +1,5 @@
 use background::BackgroundTiles;
+use banners::BannersPlugin;
 use bevy::log::{Level, LogPlugin};
 use bevy::prelude::*;
 use camera::CameraSetup;
@@ -6,17 +7,14 @@ use level::Levels;
 use seed::SeedPlugin;
 use sprite_animation::SpriteAnimationPlugin;
 
-use std::collections::HashSet;
-
-use eq_gen::{Equation, NumberType, OperationConfig, OperationType};
-use rand::{prelude::*, random_range};
-use rand_chacha::ChaCha8Rng;
-
 mod background;
+mod banners;
+mod boxes;
 mod camera;
 mod eq_gen;
 mod level;
 mod mode;
+mod player;
 mod seed;
 mod sprite_animation;
 
@@ -44,6 +42,7 @@ fn main() -> AppExit {
             SeedPlugin,
             SpriteAnimationPlugin,
             BackgroundTiles,
+            BannersPlugin,
             CameraSetup,
             Levels,
         ))

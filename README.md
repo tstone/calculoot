@@ -13,3 +13,4 @@
 
 - Pirate sprites - https://pixelfrog-assets.itch.io/treasure-hunters
 - Grass tileset - https://cainos.itch.io/pixel-art-top-down-basic
+- Monogram font - https://datagoblin.itch.io/monogram

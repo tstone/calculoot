@@ -95,6 +95,12 @@ fn render(
         rocks.insert(i);
     }
 
+    debug!(
+        "rendering background starting at 0,0 going to {},{}",
+        tile_width * render_width,
+        tile_height * render_height
+    );
+
     for x in 0..=render_width {
         for y in 0..=render_height {
             let index = if rng.random_bool(0.75) {

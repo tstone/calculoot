@@ -186,7 +186,7 @@ impl Equation {
 
 impl Display for Equation {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{} = {}", fmt_rec(self, 0), self.answer)
+        write!(f, "{}", fmt_rec(self, 0))
     }
 }
 
