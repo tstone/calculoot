@@ -2,6 +2,7 @@ use background::BackgroundTiles;
 use bevy::log::{Level, LogPlugin};
 use bevy::prelude::*;
 use camera::CameraSetup;
+use level::Levels;
 use seed::SeedPlugin;
 use sprite_animation::SpriteAnimationPlugin;
 
@@ -14,6 +15,8 @@ use rand_chacha::ChaCha8Rng;
 mod background;
 mod camera;
 mod eq_gen;
+mod level;
+mod mode;
 mod seed;
 mod sprite_animation;
 
@@ -42,31 +45,7 @@ fn main() -> AppExit {
             SpriteAnimationPlugin,
             BackgroundTiles,
             CameraSetup,
+            Levels,
         ))
         .run()
-}
-
-fn problems() {
-    let seed = random_range(0..u64::MAX);
-    let mut rng = ChaCha8Rng::seed_from_u64(seed);
-    let cfg = OperationConfig {
-        answer_min: 1,
-        answer_max: 20,
-        value_min: -20,
-        value_max: 40,
-        allowed_numerics: HashSet::from([NumberType::Whole, NumberType::Negative]),
-        allowed_operations: HashSet::from([
-            OperationType::Add,
-            OperationType::Subtract,
-            OperationType::Multiply,
-            OperationType::Divide,
-        ]),
-    };
-
-    for _ in 0..10 {
-        // let op_count = (1..=5).choose(&mut rng).unwrap();
-        if let Some(eq) = Equation::rnd_compound(&cfg, 5, &mut rng) {
-            println!("{} (measured difficulty: {})", eq, eq.difficulty());
-        }
-    }
 }

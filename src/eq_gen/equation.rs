@@ -1,3 +1,4 @@
+use std::cmp;
 use std::fmt::{Debug, Display};
 
 use primes::is_prime;
@@ -186,6 +187,18 @@ impl Equation {
 impl Display for Equation {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{} = {}", fmt_rec(self, 0), self.answer)
+    }
+}
+
+impl PartialOrd for Equation {
+    fn partial_cmp(&self, other: &Self) -> Option<cmp::Ordering> {
+        self.difficulty().partial_cmp(&other.difficulty())
+    }
+}
+
+impl Ord for Equation {
+    fn cmp(&self, other: &Self) -> cmp::Ordering {
+        self.partial_cmp(other).unwrap()
     }
 }
 
